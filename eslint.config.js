@@ -40,7 +40,7 @@ export const uiKitColorPlugin = {
 }
 
 export default defineConfig([
-  globalIgnores(['dist', '.histoire']),
+  globalIgnores(['dist', '.histoire', 'storybook-static']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [js.configs.recommended, tseslint.configs.recommended, reactHooks.configs.flat.recommended],

@@ -1,4 +1,4 @@
-name: Histoire Pages
+name: Storybook Pages
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: histoire-pages
+  group: storybook-pages
   cancel-in-progress: false
 
 jobs:
@@ -28,19 +28,19 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Build Histoire
-        run: npm run story:build
+      - name: Build Storybook
+        run: npm run build-storybook
         env:
-          HISTOIRE_BASE_PATH: /${{ github.event.repository.name }}/
+          STORYBOOK_BASE_PATH: /${{ github.event.repository.name }}/
 
       - name: Add nojekyll
-        run: touch .histoire/dist/.nojekyll
+        run: touch storybook-static/.nojekyll
 
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .histoire/dist
+          path: storybook-static
 
   deploy:
     needs: build

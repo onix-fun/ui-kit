@@ -1,6 +1,6 @@
 # @onix/ui-kit
 
-Отдельный UI-слой ONIX: дизайн-токены, shadcn-примитивы, layout- и brand-компоненты, а также Histoire-сторies.
+Отдельный UI-слой ONIX: дизайн-токены, shadcn/Base UI примитивы, layout- и brand-компоненты, а также Storybook.
 
 Репозиторий: https://github.com/onix-fun/ui-kit.git
 
@@ -11,7 +11,8 @@ src/
   styles/     токены и Tailwind-маппинг (canonical source)
   lib/        утилиты и общие типы
   hooks/      useColorTheme, useDocumentMeta
-  ui/         shadcn-примитивы, layout, brand-компоненты и *.story.tsx
+  ui/         примитивы, layout, brand-компоненты и *.stories.tsx
+.storybook/   конфигурация Storybook
 eslint.config.js  переиспользуемые правила UI-слоя
 components.json   источник истины для shadcn CLI
 ```
@@ -23,12 +24,12 @@ npm ci
 npm run lint
 npm run typecheck
 npm test
-npm run story:dev      # Histoire локально
-npm run story:build    # статическая сборка stories для CI
-npm run build          # dist/index.js + dist/styles.css + dist/index.d.ts
+npm run storybook         # Storybook локально
+npm run build-storybook   # статическая сборка Storybook
+npm run build             # dist/index.js + dist/styles.css + dist/index.d.ts
 ```
 
-Histoire требует Node ≥ 22.12. Локально на Node 20 команды Histoire могут не запуститься; CI использует Node 22.
+Storybook 10 требует Node 20+. Для GitHub Pages используется `STORYBOOK_BASE_PATH=/ui-kit/`.
 
 `npm run build` выполняет сборки в порядке JS → CSS → типы. Отдельный CSS-entry
 нужен, чтобы Geist остался внешними `.woff2`-файлами: library-режим Vite

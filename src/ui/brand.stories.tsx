@@ -1,9 +1,9 @@
-import { Story, Variant } from '@histoire/plugin-react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Home, Layers3, Sparkles } from 'lucide-react'
+import { Stack } from '@/ui/layout'
 import { Logo } from '@/ui/logo'
 import { NavPanel, type Item, type NavPanelSizes, type NavPanelStyleValues } from '@/ui/navPanel'
 import { OnixMark } from '@/ui/onix-mark'
-import { Stack } from '@/ui/layout'
 
 const items: Item[] = [
   { id: 'home', title: 'Главная', to: '/', icon: Home },
@@ -38,45 +38,64 @@ const styles: NavPanelStyleValues = {
   durationBurger: 'var(--duration-fast)',
 }
 
-export default function BrandStory() {
-  return (
-    <Story id="brand" title="Brand/Navigation">
-      <Variant id="mark" title="OnixMark">
-        <OnixMark style={{ height: 96 }} />
-      </Variant>
-      <Variant id="logo" title="Logo">
-        <Logo sizes={{ height: 32 }} />
-      </Variant>
-      <Variant id="nav-expanded" title="NavPanel — expanded">
-        <NavPanel items={items} activeId="catalog" sizes={sizes} styles={styles} />
-      </Variant>
-      <Variant id="nav-collapsed" title="NavPanel — collapsed">
+const meta = {
+  title: 'Brand/Navigation',
+  parameters: {
+    layout: 'fullscreen',
+  },
+} satisfies Meta
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Mark: Story = {
+  render: () => <OnixMark style={{ height: 96 }} />,
+}
+
+export const LogoStory: Story = {
+  name: 'Logo',
+  render: () => <Logo sizes={{ height: 32 }} />,
+}
+
+export const NavExpanded: Story = {
+  render: () => (
+    <div style={{ padding: 24 }}>
+      <NavPanel items={items} activeId="catalog" sizes={sizes} styles={styles} />
+    </div>
+  ),
+}
+
+export const NavCollapsed: Story = {
+  render: () => (
+    <div style={{ padding: 24 }}>
+      <NavPanel
+        items={items}
+        activeId="home"
+        collapsed
+        hoveredId="home"
+        collapsedWidth={sizes.burgerSize + sizes.capsulePadding * 2}
+        sizes={sizes}
+        styles={styles}
+      />
+    </div>
+  ),
+}
+
+export const NavStacked: Story = {
+  render: () => (
+    <div style={{ padding: 24, minHeight: 280, ['--header-top' as string]: '24px' }}>
+      <Stack direction="row" justify="between">
+        <Logo sizes={{ height: 28 }} />
         <NavPanel
           items={items}
           activeId="home"
           collapsed
-          hoveredId="home"
-          collapsedWidth={sizes.burgerSize + sizes.capsulePadding * 2}
+          open
+          stacked
           sizes={sizes}
           styles={styles}
         />
-      </Variant>
-      <Variant id="nav-stacked" title="NavPanel — stacked">
-        <div style={{ ['--header-top' as string]: '24px', minHeight: 280 }}>
-          <Stack direction="row" justify="between">
-            <Logo sizes={{ height: 28 }} />
-            <NavPanel
-              items={items}
-              activeId="home"
-              collapsed
-              open
-              stacked
-              sizes={sizes}
-              styles={styles}
-            />
-          </Stack>
-        </div>
-      </Variant>
-    </Story>
-  )
+      </Stack>
+    </div>
+  ),
 }

@@ -21,5 +21,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src", "stories", "histoire.config.ts", "vite.config.ts", "vite.lib.config.ts", "vite.styles.config.ts", "vitest.config.ts"]
+  "include": ["src", ".storybook", "vite.config.ts", "vite.lib.config.ts", "vite.styles.config.ts", "vitest.config.ts"]
 }
