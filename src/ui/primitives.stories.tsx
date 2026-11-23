@@ -45,19 +45,35 @@ export const Badges: Story = {
 
 export const CardExample: Story = {
   render: () => (
-    <Card style={{ maxWidth: 420 }}>
-      <CardHeader>
-        <CardTitle>Карточка</CardTitle>
-        <CardDescription>Пример композиции примитивов</CardDescription>
-        <CardAction>
-          <Badge variant="outline">Demo</Badge>
-        </CardAction>
-      </CardHeader>
-      <CardContent>Содержимое карточки использует семантические токены.</CardContent>
-      <CardFooter>
-        <Button size="sm">Действие</Button>
-      </CardFooter>
-    </Card>
+    <Stack direction="row" gap={24} wrap align="start">
+      <Card style={{ maxWidth: 360 }}>
+        <CardHeader>
+          <CardTitle>Default</CardTitle>
+          <CardDescription>Базовая карточка</CardDescription>
+          <CardAction>
+            <Badge variant="outline">Demo</Badge>
+          </CardAction>
+        </CardHeader>
+        <CardContent>Содержимое карточки использует семантические токены.</CardContent>
+        <CardFooter>
+          <Button size="sm">Действие</Button>
+        </CardFooter>
+      </Card>
+      <Card variant="outline" style={{ maxWidth: 360 }}>
+        <CardHeader>
+          <CardTitle>Outline</CardTitle>
+          <CardDescription>Вариант с рамкой</CardDescription>
+        </CardHeader>
+        <CardContent>Подходит для нейтральных блоков и списков.</CardContent>
+      </Card>
+      <Card variant="muted" style={{ maxWidth: 360 }}>
+        <CardHeader>
+          <CardTitle>Muted</CardTitle>
+          <CardDescription>Вариант с мягким фоном</CardDescription>
+        </CardHeader>
+        <CardContent>Используется для вторичного контента.</CardContent>
+      </Card>
+    </Stack>
   ),
 }
 

@@ -5,9 +5,9 @@ export const PageIntroStyles = styled.header`& {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
   align-items: end;
-  gap: var(--space-2xl);
+  gap: var(--space-xl);
   border-bottom: var(--border-width) solid var(--onix-hero-divider);
-  padding-bottom: var(--space-2xl);
+  padding-bottom: var(--space-xl);
 }
 
 & [data-part=heading] {
@@ -15,7 +15,7 @@ export const PageIntroStyles = styled.header`& {
   min-width: 0;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 & [data-part=heading] h1 {

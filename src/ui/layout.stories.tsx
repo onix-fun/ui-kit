@@ -46,14 +46,16 @@ export const ContainerStack: Story = {
 
 export const PositionSpacer: Story = {
   render: () => (
-    <div style={{ position: 'relative', height: 180, border: '1px dashed var(--color-hairline)' }}>
-      <Position top={16} left={16}>
-        Верхний левый блок
-      </Position>
-      <Spacer size={32} />
-      <Position bottom={16} right={16}>
-        Нижний правый блок
-      </Position>
-    </div>
+    <Container paddingInline={24} style={{ paddingBlock: 32 }}>
+      <div style={{ position: 'relative', height: 180, border: '1px dashed var(--color-hairline)' }}>
+        <Position top={16} left={16}>
+          Верхний левый блок
+        </Position>
+        <Spacer size={32} />
+        <Position bottom={16} right={16}>
+          Нижний правый блок
+        </Position>
+      </div>
+    </Container>
   ),
 }

@@ -59,7 +59,7 @@ export const LogoStory: Story = {
 
 export const NavExpanded: Story = {
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: 24, minHeight: 120 }}>
       <NavPanel items={items} activeId="catalog" sizes={sizes} styles={styles} />
     </div>
   ),
@@ -67,7 +67,7 @@ export const NavExpanded: Story = {
 
 export const NavCollapsed: Story = {
   render: () => (
-    <div style={{ padding: 24 }}>
+    <div style={{ padding: 24, minHeight: 120 }}>
       <NavPanel
         items={items}
         activeId="home"

@@ -39,15 +39,10 @@ const preview: Preview = {
     backgrounds: { disable: true },
     controls: { expanded: true },
     viewport: {
-      viewports: {
+      options: {
         mobile: { name: 'Mobile', styles: { width: '375px', height: '812px' }, type: 'mobile' },
         tablet: { name: 'Tablet', styles: { width: '768px', height: '1024px' }, type: 'tablet' },
         desktop: { name: 'Desktop', styles: { width: '1440px', height: '900px' }, type: 'desktop' },
-      },
-      options: {
-        mobile: { name: 'Mobile', styles: { width: '375px', height: '812px' } },
-        tablet: { name: 'Tablet', styles: { width: '768px', height: '1024px' } },
-        desktop: { name: 'Desktop', styles: { width: '1440px', height: '900px' } },
       },
     },
   },
