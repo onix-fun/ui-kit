@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.histoire/
+.histoire-visual/
+*.tsbuildinfo
+*.log
+.DS_Store
